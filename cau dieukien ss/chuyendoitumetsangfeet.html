@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi từ mét sang Feet</title>
+</head>
+<body>
+<h1>Chuyển đổi từ mét sang Feet</h1>
+<p>Nhập độ dài trong mét: <input type="text" id="doMet"></p>
+<button onclick="chuyenmetsangFeet()">Chuyển đổi</button>
+<p id="ketqua"></p>
+<script>
+      function chuyenmetsangFeet() {
+        var doMet = parseFloat(document.getElementById("doMet").value);
+        if(!isNaN(doMet)){
+          var doFeet = doMet * 3.2808;
+          document.getElementById("ketqua").innerHTML = doMet + "mét bằng" + doFeet.toFixed(2) + "feet";
+        } else{
+          document.getElementById("ketqua").innerHTML = "Vui lòng nhâpj giá trị độ dài trong mét ";
+        }
+      }
+</script>
+</body>
+</html>

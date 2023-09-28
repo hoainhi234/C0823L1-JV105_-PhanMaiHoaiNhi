@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bâc 2</title>
+</head>
+<body>
+<h1>Giải phương trình bậc 2</h1>
+<label for="hesoa">Nhập hệ số a: </label>
+<input type="number" id="hesoa">
+<br>
+<label for="hesob">Nhập hệ số b: </label>
+<input type="number" id="hesob">
+<br>
+<label for="hesoc">Nhập hệ số c: </label>
+<input type="number" id="hesoc">
+<br>
+<button onclick="giaiphuongtrinh()">Giải</button>
+<p id="result"></p>
+
+<script>
+  function giaiphuongtrinh() {
+
+    var a = parseFloat(document.getElementById("hesoa").value);
+    var b = parseFloat(document.getElementById("hesob").value);
+    var c = parseFloat(document.getElementById("hesoc").value);
+
+    var delta = b * b - 4 * a * c;
+
+    if (delta > 0) {
+
+      var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+      var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+      document.getElementById("result").innerHTML = "Nghiệm 1: x1 = " + x1 + "<br>Nghiệm 2: x2 = " + x2;
+    } else if (delta === 0) {
+
+      var x = -b / (2 * a);
+      document.getElementById("result").innerHTML = "Nghiệm kép: x = " + x;
+    } else {
+
+      document.getElementById("result").innerHTML = "Phương trình không có nghiệm thực.";
+    }
+  }
+</script>
+</body>
+</html>

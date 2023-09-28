@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 1</title>
+</head>
+<body>
+<h1>Giải phương trình bậc 1</h1>
+<label for="soa">Nhập hệ số a: </label>
+<input type="number" id="soa">
+<br>
+<label for="sob">Nhập hệ số b: </label>
+<input type="number" id="sob">
+<br>
+<button onclick="giaiphuongtrinh()">Giải</button>
+<p id="result"></p>
+
+<script>
+  function giaiphuongtrinh() {
+
+    var a = parseFloat(document.getElementById("soa").value);
+    var b = parseFloat(document.getElementById("sob").value);
+
+    if (a !== 0) {
+
+      var x = -b / a;
+
+      document.getElementById("result").innerHTML = "Nghiệm của phương trình là x = " + x;
+    } else {
+
+      document.getElementById("result").innerHTML = "Đây không phải là phương trình bậc 1 (a phải khác 0).";
+    }
+  }
+</script>
+</body>
+</html>

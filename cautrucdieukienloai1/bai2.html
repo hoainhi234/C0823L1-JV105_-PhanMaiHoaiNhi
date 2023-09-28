@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra dộ tuổi</title>
+</head>
+<body >
+<h1>Kiểm tra độ tuổi để vào lớp 10</h1>
+<p>Nhập độ tuổi: <input type="text" id="tuoi"></p>
+<button onclick="kiemtradotuoi()">Kiểm tra độ tuổi</button>
+<p id="ketqua"></p>
+<script>
+  function kiemtradotuoi() {
+    var tuoi = parseInt(document.getElementById("tuoi").value);
+
+    if (!isNaN(tuoi)) {
+      if (tuoi >= 15) {
+        document.getElementById("ketqua").innerHTML = "Học sinh này đủ tuổi vào lớp 10.";
+      } else {
+        document.getElementById("ketqua").innerHTML = "Học sinh này chưa đủ tuổi vào lớp 10.";
+      }
+    } else {
+      document.getElementById("ketqua").innerHTML = "Vui lòng nhập một giá trị tuổi hợp lệ.";
+    }
+  }
+</script>
+</body>
+</html>

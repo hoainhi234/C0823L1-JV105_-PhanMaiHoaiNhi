@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra a chia hết cho b</title>
+</head>
+<body>
+<h1>Kiểm tra số A chia hêt cho B</h1>
+<p>Nhập số a: <input type="text" id="soA"></p>
+<p>Nhập số b: <input type="text" id="soB"></p>
+<button onclick="kiemtrachiahet()">Kiểm tra</button>
+<p id="ketqua"></p>
+<script>
+  function kiemtrachiahet() {
+    var soA = parseFloat(document.getElementById("soA").value);
+    var soB = parseFloat(document.getElementById("soB").value);
+
+      if (!isNaN(soA) && !isNaN(soB)) {
+          if (soA % soB === 0) {
+              document.getElementById("ketqua").innerHTML = soA + " chia hết cho " + soB;
+          } else {
+              document.getElementById("ketqua").innerHTML = soA + " không chia hết cho " + soB;
+          }
+      } else {
+          document.getElementById("ketqua").innerHTML = "Vui lòng nhập hai số hợp lệ.";
+      }
+  }
+</script>
+</body>
+</html>

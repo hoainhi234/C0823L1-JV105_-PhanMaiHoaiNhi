@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giai thừa</title>
+</head>
+<body>
+<h1>Tính Giai Thừa</h1>
+<p>Nhập số nguyên dương tính giai thừa:</p>
+<input type="number" id="so" min="1" step="1" value="1">
+<button onclick="tinhgiaithua()" >Tính giai thừa</button>
+<p id="result"></p>
+<script>
+    function tinhgiaithua() {
+        var so = parseInt(document.getElementById('so').value);
+        var result = 1;
+
+        for(var i=1;i<=so;i++){
+            result *=i;
+        }
+        document.getElementById('result').textContent = `Giai thừa của ${so} là: ${result}`;
+    }
+</script>
+</body>
+</html>

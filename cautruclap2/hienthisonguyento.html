@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Các Số Nguyên Tố Đầu Tiên</h1>
+<ul id="primeNumbers"></ul>
+
+<script>
+  function isPrime(number) {
+    if (number <= 1) {
+      return false;
+    }
+    if (number <= 3) {
+      return true;
+    }
+    if (number % 2 === 0 || number % 3 === 0) {
+      return false;
+    }
+    let i = 5;
+    while (i * i <= number) {
+      if (number % i === 0 || number % (i + 2) === 0) {
+        return false;
+      }
+      i += 6;
+    }
+    return true;
+  }
+
+  const numberOfPrimes = 20; // Số lượng số nguyên tố bạn muốn hiển thị
+  const primeNumbersList = document.getElementById("primeNumbers");
+
+  let count = 0;
+  let currentNumber = 2;
+
+  while (count < numberOfPrimes) {
+    if (isPrime(currentNumber)) {
+      const li = document.createElement("li");
+      li.textContent = currentNumber;
+      primeNumbersList.appendChild(li);
+      count++;
+    }
+    currentNumber++;
+  }
+</script>
+</body>
+</html>

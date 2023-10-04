@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số Fibonacci chia hết cho 5 đầu tiên</title>
+</head>
+<body>
+<h1>Sóo fibonacci chia hết cho 5 đầu tiên</h1>
+<p id="result"></p>
+<script>
+  function fibonacci(){
+    let fib= [0,1];
+    let index= 2;
+    while(true){
+      fib[index]=fib[index -1] + fib[index-2];
+      if(fib[index] % 5 ===0){
+        return fib[index];
+      }
+      index++;
+    }
+  }
+  const fibonaccinumber= fibonacci();
+  const resultElement = document.getElementById("result");
+  resultElement.textContent = `Số fibonacci đầu tiên chia hết cho 5 là: ${fibonaccinumber}`;
+</script>
+</body>
+</html>

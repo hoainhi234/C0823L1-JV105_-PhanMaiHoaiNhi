@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonaci</title>
+</head>
+<body>
+<h1>Dãy Fibonacci</h1>
+<ul id="fibonacci-list"></ul>
+
+<script>
+  function fibonacci(n) {
+    let fib = [0, 1];
+    for (let i = 2; i < n; i++) {
+      fib[i] = fib[i - 1] + fib[i - 2];
+    }
+    return fib.slice(0, n);
+  }
+
+  const n = 20;
+  const fibonacciNumbers = fibonacci(n);
+
+  const ul = document.getElementById("fibonacci-list");
+  fibonacciNumbers.forEach((number) => {
+    const li = document.createElement("li");
+    li.textContent = number;
+    ul.appendChild(li);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Trò chơi đoán số</h1>
+<button id="playButton">Chơi</button>
+
+<script>
+  const playButton = document.getElementById("playButton");
+
+  function startGame() {
+    const minRange = parseInt(prompt("Nhập giá trị tối thiểu trong khoảng:"));
+    const maxRange = parseInt(prompt("Nhập giá trị tối đa trong khoảng:"));
+
+    if (isNaN(minRange) || isNaN(maxRange) || minRange >= maxRange) {
+      alert("Vui lòng nhập đúng khoảng số!");
+      return;
+    }
+
+    const randomNumber = Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+    let numberOfAttempts = 0;
+
+    while (numberOfAttempts < 3) {
+      const userGuess = parseInt(prompt(`Lượt chơi ${numberOfAttempts + 1}: Đoán một số trong khoảng từ ${minRange} đến ${maxRange}:`));
+
+      if (isNaN(userGuess)) {
+        alert("Vui lòng nhập một số!");
+      } else if (userGuess === randomNumber) {
+        alert(`Chúc mừng! Số đúng là ${randomNumber}`);
+        break;
+      } else if (userGuess < randomNumber) {
+        alert("Số bạn đoán nhỏ hơn số đúng.");
+      } else {
+        alert("Số bạn đoán lớn hơn số đúng.");
+      }
+
+      numberOfAttempts++;
+    }
+
+    if (numberOfAttempts === 3) {
+      alert(`Hết lượt chơi! Số đúng là ${randomNumber}`);
+    }
+  }
+
+  playButton.addEventListener("click", startGame);
+</script>
+</body>
+</html>

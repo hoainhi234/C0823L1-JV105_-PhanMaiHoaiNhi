@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<body>
+<h1>Chuyển Chữ Thường Sang Chữ Hoa</h1>
+<label for="inputString">Nhập chuỗi:</label>
+<input type="text" id="inputString">
+<button onclick="chuyenChuThuongSangChuHoa()">Chuyển</button>
+<p id="result"></p>
+<script>
+  function chuyenChuThuongSangChuHoa() {
+    var inputString = document.getElementById("inputString").value;
+    var result = "";
+
+    for (var i = 0; i < inputString.length; i++) {
+      var char = inputString[i];
+      if (char >= 'a' && char <= 'z') {
+        result += char.toUpperCase();
+      } else {
+        result += char;
+      }
+    }
+
+    document.getElementById("result").textContent = result;
+  }
+</script>
+</body>
+</html>

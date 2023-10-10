@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Đếm số nguyên âm trong chuỗi</h1>
+<div>
+  <label for="nhapchuoi">Nhập chuỗi:</label>
+  <input type="text" id="nhapchuoi" placeholder="Nhập chuỗi ở đây">
+  <button onclick="demsonguyen()">Đếm số nguyên âm</button>
+</div>
+<div>
+  <p>Số lượng số nguyên âm trong chuỗi: <span id="result"></span></p>
+</div>
+<script>
+  function demsonguyen() {
+    var nhapchuoi = document.getElementById("nhapchuoi");
+    var numbers = nhapchuoi.match(/-?\d+/g);
+
+    if(numbers === null){
+      document.getElementById("result").textContent="0";
+    }else{
+      var negative =0;
+      for(var i=0;i<numbers.length;i++){
+        var number = parseInt(numbers[i]);
+        if(number<0){
+          negative++;
+        }
+      }
+      document.getElementById("result").textContent= negative;
+    }
+  }
+</script>
+</body>
+</html>

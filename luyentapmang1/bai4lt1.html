@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<h1>Đảo ngược mảng số nguyên</h1>
+
+<div>
+    <label for="inputArray">Nhập mảng số nguyên (cách nhau bằng dấu phẩy):</label>
+    <input type="text" id="inputArray" placeholder="Ví dụ: 1, 2, 3, 4, 5">
+    <button onclick="reverseArray()">Đảo ngược</button>
+</div>
+
+<div>
+    <p>Mảng sau khi đảo ngược: <span id="resultArray"></span></p>
+</div>
+
+<script>
+    function reverseArray() {
+        var inputArray = document.getElementById("inputArray").value;
+        var inputArray = inputArray.split(",").map(Number); // Chuyển chuỗi nhập vào thành mảng số nguyên
+        var reversedArray = inputArray.reverse(); // Đảo ngược mảng
+
+        document.getElementById("resultArray").textContent = reversedArray.join(", "); // Hiển thị mảng đã đảo ngược
+    }
+</script>
+</script>
+</body>
+</html>

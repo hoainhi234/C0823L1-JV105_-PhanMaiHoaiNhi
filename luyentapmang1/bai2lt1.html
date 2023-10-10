@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<h1>Tìm phần tử lớn nhất trong mảng</h1>
+
+<script>
+
+  var arr = [5, 12, 8, 15, 3, 10, 20, 7, 25, 9];
+
+
+  var max = arr[0];
+  var maxIndex = 0;
+
+
+  for (var i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+      maxIndex = i;
+    }
+  }
+
+  // Hiển thị kết quả
+  document.write("Phần tử lớn nhất trong mảng là: " + max + "<br>");
+  document.write("Vị trí của phần tử lớn nhất trong mảng là: " + maxIndex);
+
+</script>
+</body>
+</html>

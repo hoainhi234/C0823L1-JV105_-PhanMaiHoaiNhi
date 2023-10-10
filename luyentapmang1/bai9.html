@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Concatenate Arrays</h1>
+<label for="arrayA">Enter 10 integers for array A separated by commas:</label>
+<input type="text" id="arrayA">
+<br>
+<label for="arrayB">Enter 10 integers for array B separated by commas:</label>
+<input type="text" id="arrayB">
+<br>
+<button onclick="concatArrays()">Concatenate</button>
+<p id="result"></p>
+
+<script>
+  function concatArrays() {
+    // Lấy giá trị nhập từ input cho mảng A và B
+    var arrayAInput = document.getElementById("arrayA").value;
+    var arrayBInput = document.getElementById("arrayB").value;
+
+    // Chuyển chuỗi nhập thành mảng số nguyên cho mảng A và B
+    var arrayA = arrayAInput.split(',').map(function(item) {
+      return parseInt(item.trim());
+    });
+
+    var arrayB = arrayBInput.split(',').map(function(item) {
+      return parseInt(item.trim());
+    });
+
+    // Khởi tạo mảng C bằng cách nối mảng A và B
+    var arrayC = arrayA.concat(arrayB);
+
+    // Hiển thị mảng C
+    document.getElementById("result").textContent = "Concatenated Array (C): " + arrayC.join(', ');
+  }
+</script>
+</body>
+</html>

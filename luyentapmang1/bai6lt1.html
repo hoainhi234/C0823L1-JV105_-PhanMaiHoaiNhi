@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+<h1>Check for V in Array</h1>
+<label for="arrayInput">Enter 10 integers separated by commas:</label>
+<input type="text" id="arrayInput">
+<br>
+<label for="valueInput">Enter an integer V:</label>
+<input type="number" id="valueInput">
+<br>
+<button onclick="checkValue()">Check</button>
+<p id="result"></p>
+
+<script>
+  function checkValue() {
+
+    var arrayInput = document.getElementById("arrayInput").value;
+    var valueInput = parseInt(document.getElementById("valueInput").value);
+
+
+    var integerArray = arrayInput.split(',').map(function(item) {
+      return parseInt(item.trim());
+    });
+
+
+    var found = false;
+    for (var i = 0; i < integerArray.length; i++) {
+      if (integerArray[i] === valueInput) {
+        found = true;
+        break;
+      }
+    }
+
+
+    var resultElement = document.getElementById("result");
+    if (found) {
+      resultElement.textContent = valueInput + " is in the array.";
+    } else {
+      resultElement.textContent = valueInput + " is not in the array.";
+    }
+  }
+</script>
+</body>
+</html>

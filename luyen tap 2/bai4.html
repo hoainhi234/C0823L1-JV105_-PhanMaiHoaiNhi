@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<h1>Đếm số từ trong chuỗi</h1>
+
+<input type="text" id="inputText" placeholder="Nhập chuỗi">
+<button onclick="countWords()">Đếm</button>
+<p id="result">Kết quả: </p>
+
+<script>
+  function countWords() {
+
+    const inputText = document.getElementById("inputText").value;
+
+
+    const words = inputText.split(" ");
+
+
+    const wordCount = words.length;
+
+
+    const resultElement = document.getElementById("result");
+    resultElement.textContent = "Kết quả: " + wordCount + " từ.";
+  }
+</script>
+</script>
+</body>
+</html>

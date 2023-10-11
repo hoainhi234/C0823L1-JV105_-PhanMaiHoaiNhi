@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<h1>Kiểm tra 2 chuỗi giống nhau</h1>
+<label for="nhapchuoi1">Nhập chuỗi 1:</label>
+<input type="text" id="nhapchuoi1"><br>
+<label for="nhapchuoi2">Nhập chuỗi 2:</label>
+<input type="text" id="nhapchuoi2"><br>
+<button onclick="checkEquality()">Kiểm tra</button>
+<p id="result">Kết quả</p>
+<script>
+  function checkEquality() {
+    const string1 = document.getElementById("nhapchuoi1").value;
+    const string2 = document.getElementById("nhapchuoi2").value;
+
+    if(string1 === string2){
+      document.getElementById("result").textContent = "Kết quả: 2 chuỗi giống nhau."
+    }else{
+      document.getElementById("result").textContent = "Kết quả: 2 chuỗi không giống nhau."
+    }
+  }
+</script>
+</body>
+</html>

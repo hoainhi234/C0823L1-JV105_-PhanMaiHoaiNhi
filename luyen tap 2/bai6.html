@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+<h1>Thay thế ký tự trong mảng ký tự</h1>
+<label for="nhapmang">Nhập mảng ký tự:</label>
+<input type="text" id="nhapmang" placeholder="Nhập mảng ký tự">
+<button onclick="thaythe()">Thay Thế</button>
+<p id="result"></p>
+<script>
+  function thaythe() {
+    const nhapmang = document.getElementById("nhapmang").value;
+    const kytu = nhapmang.replace(/-\)/g, "_");
+
+    document.getElementById("result").textContent = "Kết quả: " +  kytu;
+
+  }
+</script>
+</body>
+</html>

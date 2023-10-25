@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra ký tự số</title>
+</head>
+<body>
+<input type="text" id="inputCharacter" placeholder="Nhập một ký tự">
+<button onclick="kiemTraKyTuSo()">Kiểm tra</button>
+<p id="result"></p>
+<script>
+  function kiemTraKyTuSo(){
+    var input = document.getElementById("inputCharacter").value;
+    var isNumber = !isNaN(input);
+
+    var resultElement = document.getElementById("result");
+    if(isNumber){
+      resultElement.innerHTML="Ký tự này là số(true).";
+    } else{
+      resultElement.innerHTML="Ký tự này không phải là số(false).";
+    }
+  }
+</script>
+</body>
+</html>

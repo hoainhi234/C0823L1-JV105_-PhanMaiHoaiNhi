@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+<input type="text" id="arrayInput" placeholder="Mảng ký tự (cách nhau bằng dấu phẩy)">
+<input type="text" id="characterInput" placeholder="Ký tự cần kiểm tra">
+<button onclick="kiemTraKyTuTrongMang()">Kiểm tra</button>
+<p id="result"></p>
+
+<script>
+  function kiemTraKyTuTrongMang() {
+    var arrString = document.getElementById("arrayInput").value;
+    var kyTu = document.getElementById("characterInput").value;
+
+    var arr = arrString.split(',');
+
+    var soLanXuatHien = 0;
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] === kyTu) {
+        soLanXuatHien++;
+      }
+    }
+
+    var resultElement = document.getElementById("result");
+    if (soLanXuatHien > 0) {
+      resultElement.innerHTML = "Ký tự '" + kyTu + "' xuất hiện " + soLanXuatHien + " lần trong mảng.";
+    } else {
+      resultElement.innerHTML = "Ký tự '" + kyTu + "' không xuất hiện trong mảng.";
+    }
+  }
+</script>
+
+
+</body>
+</html>

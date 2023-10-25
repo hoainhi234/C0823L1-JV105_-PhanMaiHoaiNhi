@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+<input type="text" id="inputArray" placeholder="Nhập mảng số nguyên">
+<button onclick="daoNguocMangSoNguyen()">Đảo Ngươc</button>
+<p id="result"></p>
+<script>
+  function daoNguocMangSoNguyen(){
+    var inputArray = document.getElementById("inputArray").value;
+    var numberArray = inputArray.split(',').map(Number);
+    var reversedArray = numberArray.reverse();
+
+    var resultElement = document.getElementById("result");
+    resultElement.innerHTML = "Mảng sau khi đảo ngược: " + reversedArray;
+
+  }
+</script>
+</body>
+</html>

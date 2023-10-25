@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+<input type="number" id="inputNumber" placeholder="Nhập số">
+<button onclick="kiemTraSoNguyenDuong()">Nhập số</button>
+<p id="result"></p>
+<script>
+  function kiemTraSoNguyenDuong(){
+    var input = parseInt(document.getElementById("inputNumber").value);
+
+    var resultElement = document.getElementById("result");
+    if(input >0 && Number.isInteger(input) ){
+      resultElement.innerHTML = "Số này là số nguyên dương(true)."
+    }else{
+      resultElement.innerHTML= "Số này không phải là số nguyên dương(false)."
+    }
+  }
+</script>
+</body>
+</html>

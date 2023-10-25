@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
 </head>
 <body>
-$END$
+<h1>Tính diện tích và chu vi hình tròn</h1>
+
+<label for="radius">Bán kính:</label>
+<input type="text" id="radius" placeholder="Nhập bán kính">
+<button onclick="tinhDienTichVaChuVi()">Tính</button>
+
+<p>Diện tích: <span id="resultDienTich"></span></p>
+<p>Chu vi: <span id="resultChuVi"></span></p>
+
+<script>
+    function tinhDienTichVaChuVi() {
+        var radius = parseFloat(document.getElementById("radius").value);
+
+        if (!isNaN(radius)) {
+            var dienTich = Math.PI * radius * radius;
+            var chuVi = 2 * Math.PI * radius;
+            document.getElementById("resultDienTich").textContent = dienTich.toFixed(2);
+            document.getElementById("resultChuVi").textContent = chuVi.toFixed(2);
+        } else {
+            alert("Vui lòng nhập một số hợp lệ cho bán kính.");
+        }
+    }
+</script>
 </body>
 </html>

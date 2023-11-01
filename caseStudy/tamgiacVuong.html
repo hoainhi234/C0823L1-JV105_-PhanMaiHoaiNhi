@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tam giác vuông cân rỗng</title>
+</head>
+<body>
+<h1>Vẽ tam giác vuông cân rỗng</h1>
+
+<div id="output"></div>
+
+<script>
+    function veTamGiacVuongCanRong(h) {
+        var output = document.getElementById("output");
+        var result = "";
+
+        for (var i = 0; i < h; i++) {
+            for (var j = 0; j < h; j++) {
+                if (i === h - 1 || j === 0 || j === i) {
+                    result += "* ";
+                } else {
+                    result += "&nbsp;&nbsp;";
+                }
+            }
+            result += "<br>";
+        }
+
+        output.innerHTML = result;
+    }
+
+    var h = 5; // Chiều cao của tam giác
+    veTamGiacVuongCanRong(h);
+</script>
+</body>
+</html>

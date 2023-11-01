@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ tam giác cân</title>
+</head>
+<body>
+<h1>Vẽ tam giác cân</h1>
+<label for="chieuCao">Nhập chiều cao:</label>
+<input type="number" id="chieuCao">
+<button onclick="veTamGiac()">Vẽ tam giác</button>
+<div id="tamgiac"></div>
+<script>
+  function veTamGiac(){
+    var chieuCao = parseInt(document.getElementById("chieuCao").value);
+    if(isNaN(chieuCao) || chieuCao <=0){
+      alert("Vui lòng nhập một số nguyên dương.");
+      return;
+    }
+    for (var i = 1; i <= chieuCao; i++) {
+      var row = "";
+      for (var j = 1; j <= chieuCao - i; j++) {
+        row += "&nbsp;&nbsp;";
+      }
+      for (var k = 1; k <= 2 * i - 1; k++) {
+        row += "*";
+      }
+      tamgiac.innerHTML += row + "<br>";
+    }
+  }
+</script>
+</body>
+</html>

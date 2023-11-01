@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Kiểm tra ký tự là phụ âm hay nguyên âm</h1>
+<label for="character">Nhập một ký tự:</label>
+<input type="text" id="character" maxlength="1">
+<button onclick="checkCharacter()">Kiểm tra</button>
+<p id="result"></p>
+<script>
+  function checkCharacter() {
+    const character = document.getElementById("character").value.toLowerCase();
+
+    if(character.match(/[aeiou]/)){
+      document.getElementById("result").innerHTML = `${character} là nguyên âm.`;
+    } else if(character.match(/[bcdfghjklmnpqrstvwxyz]/)){
+        document.getElementById("result").innerHTML = `${character} là phụ âm.`;
+    } else{
+        document.getElementById("result").innerHTML = 'Ký tự không hợp lệ.';
+    }
+  }
+</script>
+</body>
+</html>

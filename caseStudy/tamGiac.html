@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Vẽ tam giác cân rỗng</h1>
+<label for="height">Nhập chiều cao (h): </label>
+<input type="number" id="height">
+<button onclick="drawHollowTriangle()">Vẽ tam giác</button>
+<div id="triangle"></div>
+<script>
+  function drawHollowTriangle() {
+
+    var height = parseInt(document.getElementById("height").value);
+
+
+    if (isNaN(height) || height <= 0) {
+      alert("Vui lòng nhập một số nguyên dương.");
+      return;
+    }
+
+    var triangle = document.getElementById("triangle");
+    triangle.innerHTML = "";
+
+
+    for (var i = 1; i <= height; i++) {
+      var row = "";
+      for (var j = 1; j <= height - i; j++) {
+        row += "&nbsp;&nbsp;";
+      }
+      if (i == 1 || i == height) {
+
+        for (var k = 1; k <= 2 * i - 1; k++) {
+          row += "*";
+        }
+      } else {
+        
+        row += "*";
+        for (var k = 1; k <= 2 * i - 3; k++) {
+          row += "&nbsp;&nbsp;";
+        }
+        row += "*";
+      }
+      triangle.innerHTML += row + "<br>";
+    }
+  }
+
+</script>
+</body>
+</html>

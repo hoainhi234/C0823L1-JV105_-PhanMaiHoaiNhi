@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Missing Values</title>
+</head>
+<body>
+<script>
+  function missingValue(A, B) {
+    var uniqueValuesA = Array.from(new Set(A));
+    var result = [];
+
+    for (var i = 0; i < B.length; i++) {
+      if (uniqueValuesA.indexOf(B[i]) === -1) {
+        if (result.indexOf(B[i]) === -1) {
+          result.push(B[i]);
+        }
+      }
+    }
+
+    return result;
+  }
+
+  var A = [7, 2, 5, 3, 5, 3];
+  var B = [7, 2, 5, 4, 6, 3, 5, 3];
+
+  var missingValues = missingValue(A, B);
+  document.write("Ket qua: " + missingValues);
+</script>
+</body>
+</html>

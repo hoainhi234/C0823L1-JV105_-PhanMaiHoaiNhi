@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Nhập mảng và tính tổng tích lũy</h1>
+<label for="arrayInput">Nhập mảng a (các số nguyên, cách nhau bằng dấu phẩy): </label>
+<input type="text" id="arrayInput">
+<button onclick="calculatePrefixSums()">Tính</button>
+<div id="result"></div>
+<script>
+  function calculatePrefixSums() {
+    var arrayInput = document.getElementById("arrayInput").value;
+    var array = arrayInput.split(",").map(Number);
+
+    var prefixSums = [];
+    var sum = 0;
+
+    for (var i = 0; i < array.length; i++) {
+      sum += array[i];
+      prefixSums.push(sum);
+    }
+
+    var resultDiv = document.getElementById("result");
+    resultDiv.textContent = "Mảng b (Prefix Sums): " + prefixSums.join(", ");
+  }
+
+</script>
+</body>
+</html>

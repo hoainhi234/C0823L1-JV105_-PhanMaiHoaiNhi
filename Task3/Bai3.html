@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tìm chỉ số phân số lớn nhất</h1>
+<p>Nhập danh sách phân số:</p>
+<div>
+  <label for="numerators">Tử số:</label>
+  <input type="text" id="numerators" placeholder="Ví dụ: 5, 2, 5">
+</div>
+<div>
+  <label for="denominators">Mẫu số:</label>
+  <input type="text" id="denominators" placeholder="Ví dụ: 6, 3, 4">
+</div>
+<button onclick="findMaxFraction()">Tìm phân số lớn nhất</button>
+<p>Chỉ số của phân số lớn nhất là: <span id="maxFractionIndex"></span></p>
+
+<script>
+  function maxFraction(numerators, denominators) {
+    if (numerators.length !== denominators.length || numerators.length === 0) {
+
+      return -1;
+    }
+    return maxFractionIndex;
+  }
+
+  function findMaxFraction() {
+    const numeratorsInput = document.getElementById("numerators").value;
+    const denominatorsInput = document.getElementById("denominators").value;
+
+    const numerators = numeratorsInput.split(",").map(Number);
+    const denominators = denominatorsInput.split(",").map(Number);
+
+    const maxFractionIndex = maxFraction(numerators, denominators);
+
+    const maxFractionIndexElement = document.getElementById("maxFractionIndex");
+    maxFractionIndexElement.textContent = maxFractionIndex;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Nhập kích thước ma trận:</h3>
+<label for="rows">Số hàng:</label>
+<input type="number" id="rows" min="1">
+<label for="columns">Số cột:</label>
+<input type="number" id="columns" min="1">
+<button onclick="findMinMaxValues()">Tìm giá trị lớn nhất và nhỏ nhất trong mảng</button>
+<p id="result">Kết Quả</p>
+<script>
+    function findMinMaxValues() {
+        var m = parseInt(document.getElementById("rows").value);
+        var n = parseInt(document.getElementById("columns").value);
+
+        if (isNaN(m) || isNaN(n) || m < 1 || n < 1) {
+            alert("Vui lòng nhập số hàng và số cột hợp lệ.");
+            return;
+        }
+
+        var matrix = [];  // Tạo ma trận
+
+        // Tạo ma trận và tìm giá trị lớn nhất và giá trị nhỏ nhất
+        var minValue = Infinity;
+        var maxValue = -Infinity;
+        for (var i = 0; i < m; i++) {
+            matrix[i] = [];
+            for (var j = 0; j < n; j++) {
+                var randomNumber = Math.floor(Math.random() * 100);  // Tạo một số ngẫu nhiên từ 0 đến 99
+                matrix[i][j] = randomNumber;
+                if (randomNumber < minValue) {
+                    minValue = randomNumber;  // Cập nhật giá trị nhỏ nhất
+                }
+                if (randomNumber > maxValue) {
+                    maxValue = randomNumber;  // Cập nhật giá trị lớn nhất
+                }
+            }
+        }
+
+        // Hiển thị ma trận
+        console.log(matrix);
+
+        // Hiển thị kết quả
+        document.getElementById("result").textContent = "Giá trị lớn nhất trong ma trận là: " + maxValue + ". Giá trị nhỏ nhất trong ma trận là: " + minValue;
+    }
+</script>
+</body>
+</html>

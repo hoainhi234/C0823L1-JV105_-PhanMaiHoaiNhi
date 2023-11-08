@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Nhập kích thước ma trận:</h3>
+<label for="rows">Số hàng (m):</label>
+<input type="number" id="rows" min="1">
+<label for="columns">Số cột (n):</label>
+<input type="number" id="columns" min="1">
+<button onclick="findPrimes()">Liệt kê và đếm số nguyên tố</button>
+<p id="result">Kết quả:</p>
+
+<script>
+  function isPrime(number) {
+    if (number <= 1) return false;
+    if (number <= 3) return true;
+    if (number % 2 === 0 || number % 3 === 0) return false;
+    for (var i = 5; i * i <= number; i += 6) {
+      if (number % i === 0 || number % (i + 2) === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function findPrimes() {
+    var m = parseInt(document.getElementById("rows").value);
+    var n = parseInt(document.getElementById("columns").value);
+
+    if (isNaN(m) || isNaN(n) || m < 1 || n < 1) {
+      alert("Vui lòng nhập số hàng và số cột hợp lệ.");
+      return;
+    }
+
+    var matrix = [];
+    var primes = [];
+
+
+    for (var i = 0; i < m; i++) {
+      matrix[i] = [];
+      for (var j = 0; j < n; j++) {
+        var randomNumber = Math.floor(Math.random() * 100);
+        matrix[i][j] = randomNumber;
+        if (isPrime(randomNumber)) {
+          primes.push(randomNumber);
+        }
+      }
+    }
+
+
+    console.log(matrix);
+
+
+    document.getElementById("result").textContent = "Các số nguyên tố trong ma trận là: " + primes.join(", ") + ". Số lượng: " + primes.length;
+  }
+</script>
+</body>
+</html>

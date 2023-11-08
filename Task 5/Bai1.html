@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>NHập kích thước Ma Trận</h1>
+<label for="rows">Số hàng:</label>
+<input type="number" id="rows" min="1">
+<label for="columns" >Số cột:</label>
+<input type="number" id="columns" min="1">
+<button onclick="calculateSum()">Tính tổng số chẵn</button>
+<p id="result">Kết Quả:</p>
+<script>
+    function calculateSum() {
+        var m = parseInt(document.getElementById("rows").value);
+        var n = parseInt(document.getElementById("columns").value);
+
+        if (isNaN(m) || isNaN(n) || m < 1 || n < 1) {
+            alert("Vui lòng nhập số hàng và số cột hợp lệ.");
+            return;
+        }
+
+        var matrix = [];
+        var sum = 0;
+
+
+        for (var i = 0; i < m; i++) {
+            matrix[i] = [];
+            for (var j = 0; j < n; j++) {
+                var randomNumber = Math.floor(Math.random() * 100);
+                matrix[i][j] = randomNumber;
+                if (randomNumber % 2 === 0) {
+                    sum += randomNumber;
+                }
+            }
+        }
+
+        console.log(matrix);
+
+
+        document.getElementById("result").textContent = "Tổng số chẵn trong ma trận là: " + sum;
+    }
+</script>
+</body>
+</html>

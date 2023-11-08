@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="input1" placeholder="Nhập chuỗi 1">
+<input type="text" id="input2" placeholder="Nhập chuỗi 2">
+<button onclick="commonCharacterCount()">Tìm ký tự chung</button>
+<p id="result">Kết quả: </p>
+<script>
+    function commonCharacterCount() {
+        var s1 = document.getElementById("input1").value;
+        var s2 = document.getElementById("input2").value;
+
+
+        var charCountS1 = {};
+
+
+        for (var i = 0; i < s1.length; i++) {
+            var char = s1[i];
+            if (charCountS1[char]) {
+                charCountS1[char]++;
+            } else {
+                charCountS1[char] = 1;
+            }
+        }
+
+        var commonCount = 0;
+
+
+        for (var j = 0; j < s2.length; j++) {
+            var char = s2[j];
+            if (charCountS1[char] > 0) {
+                commonCount++;
+                charCountS1[char]--;
+            }
+        }
+
+        document.getElementById("result").textContent = "Kết quả: " + commonCount;
+    }
+</script>
+</body>
+</html>

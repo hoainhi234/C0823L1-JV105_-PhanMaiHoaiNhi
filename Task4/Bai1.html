@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuẩn hóa xâu ký tự</title>
+</head>
+<body>
+<h1>Chuẩn hóa xâu ký tự</h1>
+<p>Nhập xâu ký tự:</p>
+<input type="text" id="inputString" placeholder="Truong Tan Hai">
+<button onclick="chuanHoa()">Chuẩn Hóa</button>
+<p>Xâu chuẩn hóa:<span id="outputString"></span></p>
+<script>
+    function chuanHoa() {
+        const inputString = document.getElementById("inputString").value;
+
+
+        const words = inputString.split(/\s+/).filter(word => word !== '');
+
+
+        const normalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+
+
+        const normalizedString = normalizedWords.join(' ');
+
+        const outputStringElement = document.getElementById("outputString");
+        outputStringElement.textContent = normalizedString;
+    }
+</script>
+</script>
+</body>
+</html>

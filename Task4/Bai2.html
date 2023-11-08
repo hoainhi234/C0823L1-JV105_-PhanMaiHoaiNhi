@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Đếm số lượng ký tự khác nhau</h1>
+<p>Nhập xâu ký tự:</p>
+<input type="text" id="inputString" placeholder="Ví dụ: cabca">
+<button onclick="countUniqueCharacters()">Đếm</button>
+<p>Số lượng ký tự khác nhau: <span id="uniqueCharacterCount"></span></p>
+
+<script>
+  function differentSymbolsNaive(s) {
+    const uniqueChars = new Set();
+
+    for (let i = 0; i < s.length; i++) {
+      uniqueChars.add(s[i]);
+    }
+
+    return uniqueChars.size;
+  }
+
+  function countUniqueCharacters() {
+    const inputString = document.getElementById("inputString").value;
+    const result = differentSymbolsNaive(inputString);
+    const uniqueCharacterCountElement = document.getElementById("uniqueCharacterCount");
+    uniqueCharacterCountElement.textContent = result;
+  }
+</script>
+</body>
+</html>

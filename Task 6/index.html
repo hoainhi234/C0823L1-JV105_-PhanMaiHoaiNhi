@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Quản lý học viên Codegym</h1>
+<button onclick="showAllStudents()">Hiển thị học viên</button>
+<button onclick="addStudent()">Thêm mới học viên</button>
+<button onclick="editStudent()">Sửa thông tin học viên</button>
+<button onclick="deleteStudent()">Xóa học viên</button>
+<table id="studentTable">
+    <th>Mã học viên</th>
+    <th>Tên</th>
+    <th>Lớp</th>
+    <th>Email</th>
+    <th>Ngày sinh</th>
+    <th>Module</th>
+</table>
+<script>
+    let students = [];
+    function showAllStudents(){
+        let table = document.getElementById("studentTable");
+        table.innerHTML = "<tr><th>Mã Học Viên</th><th>Tên</th><th>Lớp</th><th>Email</th><th>Ngày Sinh</th><th>Module</th></tr>";
+        for (let i = 0; i < students.length; i++) {
+            let student = students[i];
+            table.innerHTML += `<tr><td>${student.maHocVien}</td><td>${student.ten}</td><td>${student.lop}</td><td>${student.email}</td><td>${student.ngaySinh}</td><td>${student.module}</td></tr>`;
+        }
+    }
+    function addStudent() {
+        let maHocVien = prompt("Nhập Mã Học Viên (HV-XXXX):");
+        let ten = prompt("Nhập Tên Học Viên:");
+        let lop = prompt("Nhập Lớp:");
+        let email = prompt("Nhập Email:");
+        let ngaySinh = prompt("Nhập Ngày Sinh (dd/mm/yyyy):");
+        let module = prompt("Nhập Module (1-6):");
+
+
+        if (!/HV-\d{4}/.test(maHocVien) || ten.length > 50 || isNaN(module) || module < 1 || module > 6 || !/^\d{2}\/\d{2}\/\d{4}$/.test(ngaySinh)) {
+            alert("Thông tin không hợp lệ. Học viên không được thêm.");
+            return;
+        }
+        students.push({ maHocVien, ten, lop, email, ngaySinh, module });
+        alert("Học viên đã được thêm vào danh sách.");
+    }
+ function editStudent(){
+        let maHocVien = prompt("Nhập mã học viên cần sửa:");
+
+        let studentIndex = students.findIndex(student => student.maHocVien === maHocVien);
+     if (studentIndex === -1) {
+         alert("Mã Học Viên không tồn tại.");
+         return;
+     }
+     let ten = prompt("Nhập Tên Học Viên:");
+     let lop = prompt("Nhập Lớp:");
+     let email = prompt("Nhập Email:");
+     let ngaySinh = prompt("Nhập Ngày Sinh (dd/mm/yyyy):");
+     let module = prompt("Nhập Module (1-6):");
+
+     if (ten.length > 50 || isNaN(module) || module < 1 || module > 6 || !/^\d{2}\/\d{2}\/\d{4}$/.test(ngaySinh)) {
+         alert("Thông tin không hợp lệ. Học viên không được sửa.");
+         return;
+     }
+
+     students[studentIndex] = { maHocVien, ten, lop, email, ngaySinh, module };
+     alert("Thông tin Học viên đã được sửa.");
+ }
+ function deleteStudent(){
+     let maHocVien = prompt("Nhập Mã Học Viên cần xóa:");
+
+     let studentIndex = students.findIndex(student => student.maHocVien === maHocVien);
+     if (studentIndex === -1) {
+         alert("Mã Học Viên không tồn tại.");
+         return;
+     }
+
+     if (confirm("Bạn có chắc chắn muốn xóa Học viên này?")) {
+         students.splice(studentIndex, 1);
+         alert("Học viên đã bị xóa.");
+     }
+ }
+
+</script>
+</body>
+</html>
